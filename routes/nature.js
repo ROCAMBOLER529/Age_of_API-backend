@@ -30,11 +30,11 @@ router.get('/byName/:name', getNatureByName);
 router.get('/byIntroduced/:introduced', getNatureByRelease);
 router.get('/byResource/:resource', getNatureByResurce);
 
-router.post('/addNature/', validarJWT, addNature);
+router.post('/addNature/', addNature);
 
-router.put('/updateInfoOfNature/:nombre', validarJWT, updateInfoOfNature);
-router.put('/updateResourceOfNature/:nombre', validarJWT, updateResourceOfNature);
+router.put('/updateInfoOfNature/:nombre', updateInfoOfNature);
+router.put('/updateResourceOfNature/:nombre', updateResourceOfNature);
 
-router.delete('/deleteNature/:name', validarJWT, deleteNature);
+router.delete('/deleteNature/:name', deleteNature);
 
 module.exports = router;
