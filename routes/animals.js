@@ -34,12 +34,12 @@ router.get('/getAnimalsByIntroduced/:introduced', getAnimalsByIntroduced);
 router.get('/getAttackingAnimals/', getAttackingAnimals);
 router.get('/getAnimalsByFoodDropped/:amount', getAnimalsByFoodDropped);
 
-router.post('/addPlainAminal/', validarJWT, addPlainAminal);
-router.post('/addAnimal/', validarJWT, addAnimal);
+router.post('/addPlainAminal/', addPlainAminal);
+router.post('/addAnimal/', addAnimal);
 
-router.put('/updateAnimal/:nombreOriginal', validarJWT, updateAnimal);
-router.put('/updateNameOfAnimal/:nombreOriginal', validarJWT, updateNameOfAnimal);
+router.put('/updateAnimal/:nombreOriginal', updateAnimal);
+router.put('/updateNameOfAnimal/:nombreOriginal', updateNameOfAnimal);
 
-router.delete('/deleteAnimal/:name', validarJWT, deleteAnimal);
+router.delete('/deleteAnimal/:name', deleteAnimal);
 
 module.exports = router;
