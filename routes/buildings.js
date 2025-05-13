@@ -38,15 +38,15 @@ router.get('/byType/:type', getBuildingsByType);
 router.get('/byAge/:age', getBuildingsByAge);
 router.get('/byResource/:resource', getBuildingsByResource);
 
-router.post('/addPlainBuilding/', validarJWT, addPlainBuilding);
-router.post('/addSimpleBuilding/', validarJWT, addSimpleBuilding);
+router.post('/addPlainBuilding/', addPlainBuilding);
+router.post('/addSimpleBuilding/', addSimpleBuilding);
 
-router.put('/updateNameOfBuilding/:nombre', validarJWT, updateNameOfBuilding);
-router.put('/updateStatsOfBuilding/:nombre', validarJWT, updateStatsOfBuilding);
-router.put('/clearBuilding/:nombre', validarJWT, clearBuilding);
+router.put('/updateNameOfBuilding/:nombre', updateNameOfBuilding);
+router.put('/updateStatsOfBuilding/:nombre', updateStatsOfBuilding);
+router.put('/clearBuilding/:nombre', clearBuilding);
 
-router.delete('/deleteBuilding/:name', validarJWT, deleteBuilding);
-router.delete('/deleteAllBuildingByAge/:age', validarJWT, deleteAllBuildingByAge);
+router.delete('/deleteBuilding/:name', deleteBuilding);
+router.delete('/deleteAllBuildingByAge/:age', deleteAllBuildingByAge);
 
 module.exports = router;
 
