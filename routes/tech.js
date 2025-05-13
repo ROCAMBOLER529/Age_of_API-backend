@@ -38,15 +38,15 @@ router.get('/byAge/:age', getTechByAge);
 router.get('/byResource/:resource', getTechByResource);
 router.get('/byBuilding/:building', getTechByBuilding);
 
-router.post('/addPlainTech/', validarJWT, addPlainTech);
-router.post('/addSimpleTech/', validarJWT, addSimpleTech);
+router.post('/addPlainTech/', addPlainTech);
+router.post('/addSimpleTech/', addSimpleTech);
 
-router.put('/updateNameOfTech/:nombre', validarJWT, updateNameOfTech);
-router.put('/updateResearchOfTech/:nombre', validarJWT, updateResearchOfTech);
-router.put('/clearTech/:nombre', validarJWT, clearTech);
+router.put('/updateNameOfTech/:nombre', updateNameOfTech);
+router.put('/updateResearchOfTech/:nombre', updateResearchOfTech);
+router.put('/clearTech/:nombre', clearTech);
 
-router.delete('/deleteTech/:name', validarJWT, deleteTech);
-router.delete('/deleteAllTechByAge/:age', validarJWT, deleteAllTechByAge);
-router.delete('/deleteAllTechByBuilding/:at', validarJWT, deleteAllTechByBuilding);
+router.delete('/deleteTech/:name', deleteTech);
+router.delete('/deleteAllTechByAge/:age', deleteAllTechByAge);
+router.delete('/deleteAllTechByBuilding/:at', deleteAllTechByBuilding);
 
 module.exports = router;
