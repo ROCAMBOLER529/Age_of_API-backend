@@ -30,19 +30,19 @@ const { getUsuarios,
         validarJWT
     } = require('../middlewares/auth');
 
-router.get('/all/', validarJWT, getUsuarios);
-router.get('/byName/:name', validarJWT, getUsuariosByName);
-router.get('/byRol/:rol', validarJWT, getUsuariosByRol);
-router.get('/banned/', validarJWT, getUsuariosByBan);
+router.get('/all/', getUsuarios);
+router.get('/byName/:name', getUsuariosByName);
+router.get('/byRol/:rol', getUsuariosByRol);
+router.get('/banned/', getUsuariosByBan);
 
 router.post('/addUsuario/', validarJWT, addUsuario);
 
-router.put('/updateUsuario/:nombre', updateUsuario);
-router.put('/banUsuario/:name', banUsuario);
-router.put('/unbanUsuario/:name', unbanUsuario);
-router.put('/promoteUsuario/:name', promoteUsuario);
-router.put('/demoteUsuario/:name', demoteUsuario);
+router.put('/updateUsuario/:nombre', validarJWT, updateUsuario);
+router.put('/banUsuario/:name', validarJWT, banUsuario);
+router.put('/unbanUsuario/:name', validarJWT, unbanUsuario);
+router.put('/promoteUsuario/:name', validarJWT, promoteUsuario);
+router.put('/demoteUsuario/:name', validarJWT, demoteUsuario);
 
-router.delete('/deleteUsuario/:name', deleteUsuario);
+router.delete('/deleteUsuario/:name', validarJWT, deleteUsuario);
 
 module.exports = router;
