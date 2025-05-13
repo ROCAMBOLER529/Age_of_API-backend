@@ -8,6 +8,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 class Server {
     constructor() {
@@ -22,7 +23,7 @@ class Server {
     }
 
     cargarMiddlewares() {
-        this.app.use(cors({ origin: 'http://localhost:3000' }));
+        this.app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
         this.app.use(express.urlencoded({ extended: true }));
     }
 
