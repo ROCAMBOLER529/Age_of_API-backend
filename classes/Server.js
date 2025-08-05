@@ -22,7 +22,6 @@ class Server {
 
     cargarMiddlewares() {
         this.app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
-        this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
     }
 
@@ -60,5 +59,6 @@ class Server {
 }
 
 module.exports = Server;
+
 
 
