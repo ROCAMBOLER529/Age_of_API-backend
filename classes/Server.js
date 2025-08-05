@@ -15,8 +15,6 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.db = process.env.MONGO_URI;
-        // this.db = 'mongodb+srv://rocamboler529:<db_password>@ageofapi.47ph7.mongodb.net/';
-        // this.db = 'mongodb://localhost:27017/Age_of_API';
         this.cargarMiddlewares();
         this.cargarRoutes();
         this.conectarDB();
@@ -62,4 +60,5 @@ class Server {
 }
 
 module.exports = Server;
+
 
