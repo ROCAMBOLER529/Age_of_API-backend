@@ -33,11 +33,12 @@ router.get('/byRelease/:introduced', getUnitByRelease)
 router.get('/byAge/:age', getUnitByAge);
 router.get('/byResource/:resource', getUnitsByResource);
 
-router.post('/addUnit/', addUnit);
+router.post('/addUnit/', validarJWT, addUnit);
 
-router.put('/updateStatsOfUnit/:nombre', updateStatsOfUnit);
-router.put('/updateInfoOfUnit/:nombre', updateInfoOfUnit);
+router.put('/updateStatsOfUnit/:nombre', validarJWT, updateStatsOfUnit);
+router.put('/updateInfoOfUnit/:nombre', validarJWT, updateInfoOfUnit);
 
-router.delete('/deleteUnit/:name', deleteUnit);
+router.delete('/deleteUnit/:name', validarJWT, deleteUnit);
 
 module.exports = router;
+
