@@ -18,15 +18,14 @@ class Server {
         this.cargarMiddlewares();
         this.cargarRoutes();
         this.conectarDB();
-    }
-
-    cargarMiddlewares() {
         this.app.use(cors({ 
             origin: 'https://age-of-api-frontend.vercel.app',
             methods: ['GET', 'POST', 'PUT', 'DELETE'],
             credentials: true 
         }));
-        this.app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+    }
+
+    cargarMiddlewares() {
         this.app.use(express.urlencoded({ extended: true }));
     }
 
@@ -64,6 +63,7 @@ class Server {
 }
 
 module.exports = Server;
+
 
 
 
