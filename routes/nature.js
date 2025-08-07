@@ -26,15 +26,16 @@ const {
 } = require('../middlewares/auth');
 
 router.get('/all/', getAllNatures);
-router.get('/byName/:name', getNatureByName);
-router.get('/byIntroduced/:introduced', getNatureByRelease);
-router.get('/byResource/:resource', getNatureByResurce);
+router.get('/byName/:name', validarJWT, getNatureByName);
+router.get('/byIntroduced/:introduced', validarJWT, getNatureByRelease);
+router.get('/byResource/:resource', validarJWT, getNatureByResurce);
 
-router.post('/addNature/', addNature);
+router.post('/addNature/', validarJWT, addNature);
 
-router.put('/updateInfoOfNature/:nombre', updateInfoOfNature);
-router.put('/updateResourceOfNature/:nombre', updateResourceOfNature);
+router.put('/updateInfoOfNature/:nombre', validarJWT, updateInfoOfNature);
+router.put('/updateResourceOfNature/:nombre', validarJWT, updateResourceOfNature);
 
-router.delete('/deleteNature/:name', deleteNature);
+router.delete('/deleteNature/:name', validarJWT, deleteNature);
 
 module.exports = router;
+
