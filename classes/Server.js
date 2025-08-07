@@ -15,14 +15,14 @@ class Server {
         this.app = express();
         this.port = process.env.PORT;
         this.db = process.env.MONGO_URI;
-        this.cargarMiddlewares();
-        this.cargarRoutes();
-        this.conectarDB();
         this.app.use(cors({ 
             origin: 'https://age-of-api-frontend.vercel.app',
             methods: ['GET', 'POST', 'PUT', 'DELETE'],
             credentials: true 
         }));
+        this.cargarMiddlewares();
+        this.cargarRoutes();
+        this.conectarDB();
     }
 
     cargarMiddlewares() {
@@ -63,6 +63,7 @@ class Server {
 }
 
 module.exports = Server;
+
 
 
 
