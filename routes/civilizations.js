@@ -42,12 +42,13 @@ router.get('/getTechOfCiv/:name', getTechOfCiv);
 router.get('/byRelease/:introduced', getCivsByRelease);
 router.get('/byArchitecture/:architecture', getCivsByArchitecture);
 
-router.post('/addPlainCiv/', addPlainCiv);
+router.post('/addPlainCiv/', validarJWT, addPlainCiv);
 
-router.put('/updateCiv/:nombre', updateCivilization);
-router.put('/updateAIPlayerNames/:nombre', updateAIPlayerNames);
-router.put('/addUnitsToCiv/:nombre', addUnitsToCiv);
+router.put('/updateCiv/:nombre', validarJWT, updateCivilization);
+router.put('/updateAIPlayerNames/:nombre', validarJWT, updateAIPlayerNames);
+router.put('/addUnitsToCiv/:nombre', validarJWT, addUnitsToCiv);
 
-router.delete('/deleteCiv/:name', deleteCiv);
+router.delete('/deleteCiv/:name', validarJWT, deleteCiv);
 
 module.exports = router;
+
