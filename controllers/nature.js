@@ -19,7 +19,7 @@ const getAllNatures = async (req, res) => {
     sendResponse(res, nature.map(x => x.name));
 }
 
-const getNatureByName = async (req, res) => {
+const getNatureByName = (req, res) => {
     let { name } = req.params;
 
     // const nature = await Nature.find({ name: replaceChar("-", " ", name) }, ).exec();
@@ -129,3 +129,4 @@ module.exports = {
     deleteNature
 
 }
+
