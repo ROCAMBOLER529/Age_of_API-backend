@@ -26,9 +26,9 @@ const {
 } = require('../middlewares/auth');
 
 router.get('/all/', getAllNatures);
-router.get('/byName/:name', validarJWT, getNatureByName);
-router.get('/byIntroduced/:introduced', validarJWT, getNatureByRelease);
-router.get('/byResource/:resource', validarJWT, getNatureByResurce);
+router.get('/byName/:name', getNatureByName);
+router.get('/byIntroduced/:introduced', getNatureByRelease);
+router.get('/byResource/:resource', getNatureByResurce);
 
 router.post('/addNature/', validarJWT, addNature);
 
@@ -38,4 +38,5 @@ router.put('/updateResourceOfNature/:nombre', validarJWT, updateResourceOfNature
 router.delete('/deleteNature/:name', validarJWT, deleteNature);
 
 module.exports = router;
+
 
