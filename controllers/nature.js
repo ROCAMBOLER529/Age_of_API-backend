@@ -33,12 +33,15 @@ const getNatureByName = (req, res) => {
     );
 };
 
-const getNatureByRelease = async (req, res) => {
+const getNatureByRelease = (req, res) => {
     let { introduced } = req.params;
 
-    const nature = await Nature.find({ introduced: replaceChar("-", " ", introduced) }).exec();
-
-    sendResponse(res, nature.map(x => x.name));
+    Nature.find({ introduced: replaceChar("-", " ", introduced) }, (err, nature) => {
+        if (err) {
+            return res.status(500).json({error: "Server Error"});
+        }
+        sendResponse(res, nature.map(x => x.name));  
+    })
 }
 
 const getNatureByResurce = async (req, res) => {
@@ -131,5 +134,6 @@ module.exports = {
     deleteNature
 
 }
+
 
 
