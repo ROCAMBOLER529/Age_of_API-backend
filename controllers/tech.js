@@ -17,7 +17,7 @@ const { getBuilding } = require('../helpers/getter');
 const getAllTech = (req, res) => {
     // const tech = await Tech.find().exec();
 
-    Tech.find().exec()
+    Tech.find({}).exec()
         .then(tech => {
             sendResponse(res, tech.map(x => x.name));
         })
@@ -250,4 +250,5 @@ module.exports = {
     deleteAllTechByBuilding
 
 }
+
 
