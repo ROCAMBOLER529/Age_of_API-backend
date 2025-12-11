@@ -13,10 +13,13 @@ const { replaceChar, sendResponse, setIdForElement } = require("../helpers/funct
 // GET
 // --------
 
-const getAllNatures = async (req, res) => {
-    const nature = await Nature.find().exec();
-    
-    sendResponse(res, nature.map(x => x.name));
+const getAllNatures = (req, res) => {
+    Nature.find({}, (err, nature) => {
+       if (err) {
+           return res.status(500).json({ error: "Server Error" });
+        } 
+        sendResponse(res, nature.map(x => x.name));
+    });
 }
 
 const getNatureByName = (req, res) => {
@@ -134,6 +137,7 @@ module.exports = {
     deleteNature
 
 }
+
 
 
 
