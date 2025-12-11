@@ -18,7 +18,7 @@ const getAllTech = (req, res) => {
     // const tech = await Tech.find().exec();
 
     Tech.find().exec()
-        .then(nature => {
+        .then(tech => {
             sendResponse(res, tech.map(x => x.name));
         })
         .catch(err => {
@@ -250,3 +250,4 @@ module.exports = {
     deleteAllTechByBuilding
 
 }
+
