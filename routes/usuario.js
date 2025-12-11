@@ -27,22 +27,23 @@ const { getUsuarios,
         demoteUsuario
     } = require('../controllers/usuario');
     const {
-        validarJWT
+        validarJWT,
+        esAdmin
     } = require('../middlewares/auth');
 
-router.get('/all/', getUsuarios);
-router.get('/byName/:name', getUsuariosByName);
-router.get('/byRol/:rol', getUsuariosByRol);
-router.get('/banned/', getUsuariosByBan);
+router.get('/all/', esAdmin, getUsuarios);
+router.get('/byName/:name', esAdmin, getUsuariosByName);
+router.get('/byRol/:rol', esAdmin, getUsuariosByRol);
+router.get('/banned/', esAdmin, getUsuariosByBan);
 
-router.post('/addUsuario/', validarJWT, addUsuario);
+router.post('/addUsuario/', validarJWT, esAdmin, addUsuario);
 
-router.put('/updateUsuario/:nombre', validarJWT, updateUsuario);
-router.put('/banUsuario/:name', validarJWT, banUsuario);
-router.put('/unbanUsuario/:name', validarJWT, unbanUsuario);
-router.put('/promoteUsuario/:name', validarJWT, promoteUsuario);
-router.put('/demoteUsuario/:name', validarJWT, demoteUsuario);
+router.put('/updateUsuario/:nombre', validarJWT, esAdmin, updateUsuario);
+router.put('/banUsuario/:name', validarJWT, esAdmin, banUsuario);
+router.put('/unbanUsuario/:name', validarJWT, esAdmin, unbanUsuario);
+router.put('/promoteUsuario/:name', validarJWT, esAdmin, promoteUsuario);
+router.put('/demoteUsuario/:name', validarJWT, esAdmin, demoteUsuario);
 
-router.delete('/deleteUsuario/:name', validarJWT, deleteUsuario);
+router.delete('/deleteUsuario/:name', validarJWT, esAdmin, deleteUsuario);
 
 module.exports = router;
