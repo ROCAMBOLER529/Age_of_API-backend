@@ -14,10 +14,16 @@ const { getBuilding } = require('../helpers/getter');
 // GET
 // --------
 
-const getAllTech = async (req, res) => {
-    const tech = await Tech.find().exec();
+const getAllTech = (req, res) => {
+    // const tech = await Tech.find().exec();
 
-    sendResponse(res, tech.map(x => x.name));
+    Tech.find().exec()
+        .then(nature => {
+            sendResponse(res, tech.map(x => x.name));
+        })
+        .catch(err => {
+            res.status(500).json({error: "Server Error"});
+        });
 }
 
 const getTechByName = async (req, res) => {
@@ -242,4 +248,5 @@ module.exports = {
     deleteTech,
     deleteAllTechByAge,
     deleteAllTechByBuilding
+
 }
